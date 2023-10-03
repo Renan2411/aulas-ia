@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,17 +35,17 @@ public class BuscaEmArvore {
             System.out.println("\n---------");
         }
 
-//        while (!Objects.isNull(noAtual)) {
-//            System.out.printf("-----Profundidade = %d---\n", noAtual.profundidade);
-//            for (int i = 0; i < noAtual.estado.length; i++) {
-//                for (int j = 0; j < noAtual.estado[i].length; j++) {
-//                    System.out.printf("%d\t", noAtual.estado[i][j]);
-//                }
-//                System.out.println("\n---------");
-//            }
-//
-//            noAtual = noAtual.pai;
-//        }
+        while (!Objects.isNull(noAtual)) {
+            System.out.printf("-----Profundidade = %d---\n", noAtual.profundidade);
+            for (int i = 0; i < noAtual.estado.length; i++) {
+                for (int j = 0; j < noAtual.estado[i].length; j++) {
+                    System.out.printf("%d\t", noAtual.estado[i][j]);
+                }
+                System.out.println("\n---------");
+            }
+
+            noAtual = noAtual.pai;
+        }
 
     }
 
