@@ -10,13 +10,9 @@ public class BuscaEmProfundidade {
 
     public static void executar(Cidade objetivo, No estadoInicial) {
 
-        if (borda.empty()) {
-            borda.push(estadoInicial);
-        }
+        borda.push(estadoInicial);
 
         No noAtual = removerBorda();
-
-        int n = 0;
 
         while (!verificarObjetivo(noAtual, objetivo)) {
             expandirNo(noAtual);
@@ -24,10 +20,9 @@ public class BuscaEmProfundidade {
             expandidos.add(noAtual);
             noAtual = removerBorda();
 
-            n++;
         }
 
-        while (!Objects.isNull(noAtual.pai)){
+        while (!Objects.isNull(noAtual.pai)) {
             System.out.println(noAtual);
             noAtual = noAtual.pai;
         }
@@ -41,7 +36,7 @@ public class BuscaEmProfundidade {
 
             No novoNo = new No(vizinho.cidade, vizinho.distancia, no);
 
-            List<No> adicionados =  expandidos.stream().filter(x -> x.cidade == novoNo.cidade).collect(Collectors.toList());
+            List<No> adicionados = expandidos.stream().filter(x -> x.cidade == novoNo.cidade).collect(Collectors.toList());
 
             if (adicionados.isEmpty()) {
                 borda.push(novoNo);
@@ -49,7 +44,6 @@ public class BuscaEmProfundidade {
 
         }
     }
-
     public static Boolean verificarObjetivo(No estadoAtual, Cidade objetivo) {
         return estadoAtual.cidade == objetivo;
     }
