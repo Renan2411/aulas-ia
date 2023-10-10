@@ -11,7 +11,6 @@ public class BuscaGulosa {
         borda.add(estadoInicial);
 
         No noAtual = removerBorda();
-        expandidos.add(noAtual);
         int n = 0;
 
         while (!verificarObjetivo(noAtual, objetivo)) {
@@ -28,12 +27,32 @@ public class BuscaGulosa {
         }
 
         System.out.println(noAtual);
+
+        System.out.println();
+        System.out.println("Borda");
+        imprimirBorda();
+
+        System.out.println();
+        System.out.println("Expandidos");
+        imprimirExpandidos();
+    }
+
+    public static void imprimirBorda(){
+        for(No noBorda : borda){
+            System.out.println(noBorda);
+        }
+    }
+
+    public static void imprimirExpandidos(){
+        for(No noBorda : expandidos){
+            System.out.println(noBorda);
+        }
     }
 
     public static void expandirNo(No no) {
         for (Vizinho vizinho : Mapa.getVizinhos(no.cidade)) {
 
-            No novoNo = new No(vizinho.cidade, vizinho.ldr + no.custo, no);
+            No novoNo = new No(vizinho.cidade, vizinho.ldr, no);
 
             if (verificarNoExpandido(novoNo)) {
 
@@ -42,8 +61,6 @@ public class BuscaGulosa {
                 if (!Objects.isNull(noBorda)) {
                     if (novoNo.custo < noBorda.custo) {
                         borda.add(borda.indexOf(noBorda), novoNo);
-                    } else {
-                        borda.add(novoNo);
                     }
                 } else {
                     borda.add(novoNo);

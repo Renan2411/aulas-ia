@@ -12,7 +12,6 @@ public class BuscaPorCustoUniforme {
         borda.add(estadoInicial);
 
         No noAtual = removerBorda();
-        expandidos.add(noAtual);
         int n = 0;
 
         while (!verificarObjetivo(noAtual, objetivo)) {
@@ -29,6 +28,25 @@ public class BuscaPorCustoUniforme {
         }
 
         System.out.println(noAtual);
+        System.out.println();
+        System.out.println("Borda");
+        imprimirBorda();
+
+        System.out.println();
+        System.out.println("Expandidos");
+        imprimirExpandidos();
+    }
+
+    public static void imprimirBorda(){
+        for(No noBorda : borda){
+            System.out.println(noBorda);
+        }
+    }
+
+    public static void imprimirExpandidos(){
+        for(No noBorda : expandidos){
+            System.out.println(noBorda);
+        }
     }
 
     public static void expandirNo(No no) {

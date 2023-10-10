@@ -72,7 +72,7 @@ public class Mapa {
             case SIBIU:
                 vizinhos.add(new Vizinho(Cidade.ARAD, 140, 366));
                 vizinhos.add(new Vizinho(Cidade.FAGARAS, 99, 176));
-                vizinhos.add(new Vizinho(Cidade.ORADEA, 151, 390));
+                vizinhos.add(new Vizinho(Cidade.ORADEA, 151, 380));
                 vizinhos.add(new Vizinho(Cidade.RIMNICU_VILCEA, 80, 193));
                 break;
             case TIMISOARA:

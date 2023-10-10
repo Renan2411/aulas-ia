@@ -11,7 +11,6 @@ public class BuscaAhEstrela {
         borda.add(estadoInicial);
 
         No noAtual = removerBorda();
-        expandidos.add(noAtual);
         int n = 0;
 
         while (!VerificacaoBusca.verificarObjetivo(noAtual, objetivo)) {
@@ -28,12 +27,33 @@ public class BuscaAhEstrela {
         }
 
         System.out.println(noAtual);
+        System.out.println();
+        System.out.println("Borda");
+        imprimirBorda();
+
+        System.out.println();
+        System.out.println("Expandidos");
+        imprimirExpandidos();
+    }
+
+    public static void imprimirBorda(){
+        for(No noBorda : borda){
+            System.out.println(noBorda);
+        }
+    }
+
+    public static void imprimirExpandidos(){
+        for(No noBorda : expandidos){
+            System.out.println(noBorda);
+        }
     }
 
     public static void expandirNo(No no) {
         for (Vizinho vizinho : Mapa.getVizinhos(no.cidade)) {
 
-            No novoNo = new No(vizinho.cidade, vizinho.ldr + vizinho.distancia + no.custo, no);
+            int custo = 0;
+
+            No novoNo = new No(vizinho.cidade, custo, no);
 
             if (VerificacaoBusca.verificarNoExpandido(novoNo, expandidos)) {
 
@@ -50,6 +70,20 @@ public class BuscaAhEstrela {
                 }
             }
         }
+    }
+
+    public static No removerBorda() {
+        No no = borda.get(0);
+
+        for (No noBorda : borda) {
+            if (noBorda.custo < no.custo) {
+                no = noBorda;
+            }
+        }
+
+        borda.remove(no);
+
+        return no;
     }
 
 }

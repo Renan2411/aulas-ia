@@ -29,6 +29,25 @@ public class BuscaEmProfundidade {
 
         System.out.println(noAtual);
 
+        System.out.println();
+        System.out.println("Borda");
+        imprimirBorda();
+
+        System.out.println();
+        System.out.println("Expandidos");
+        imprimirExpandidos();
+    }
+
+    public static void imprimirBorda(){
+        for(No noBorda : borda){
+            System.out.println(noBorda);
+        }
+    }
+
+    public static void imprimirExpandidos(){
+        for(No noBorda : expandidos){
+            System.out.println(noBorda);
+        }
     }
 
     public static void expandirNo(No no) {

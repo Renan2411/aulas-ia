@@ -6,6 +6,8 @@ public class No {
     public List<Vizinho> vizinhos = new ArrayList<>();
     public int custo;
 
+    public int distanciaTotal;
+
     public  No pai;
 
     public No(Cidade cidade, int custo, No pai) {

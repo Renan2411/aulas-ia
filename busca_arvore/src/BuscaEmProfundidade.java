@@ -1,9 +1,10 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class BuscaEmArvore {
-    static List<No> borda = new ArrayList<>();
-    static List<No> expandidos = new ArrayList<>();
+public class BuscaEmProfundidade {
+    public static final Stack<No> borda = new Stack<>();
+    public static final List<No> expandidos = new ArrayList<>();
+
 
     public void executar(int[][] estadoInicial, int[][] objetivo, No no) {
 
@@ -19,7 +20,6 @@ public class BuscaEmArvore {
             }
 
             expandirNo(noAtual);
-            expandidos.add(noAtual);
 
             borda.remove(noAtual);
             No novoNo = borda.get(0);
@@ -47,35 +47,6 @@ public class BuscaEmArvore {
             }
 
             noAtual = noAtual.pai;
-        }
-
-
-        System.out.println();
-        System.out.println("Expandidos");
-        System.out.println();
-
-        for(No noExpandido : expandidos){
-            for (int i = 0; i < noExpandido.estado.length; i++) {
-                for (int j = 0; j < noExpandido.estado[i].length; j++) {
-                    System.out.printf("%d\t", noExpandido.estado[i][j]);
-                }
-                System.out.println("\n---------");
-            }
-            System.out.println();
-        }
-
-        System.out.println();
-        System.out.println("BORDA");
-        System.out.println();
-
-        for(No noExpandido : borda){
-            for (int i = 0; i < noExpandido.estado.length; i++) {
-                for (int j = 0; j < noExpandido.estado[i].length; j++) {
-                    System.out.printf("%d\t", noExpandido.estado[i][j]);
-                }
-                System.out.println("\n---------");
-            }
-            System.out.println();
         }
 
     }
