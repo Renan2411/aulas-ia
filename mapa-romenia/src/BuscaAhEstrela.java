@@ -51,9 +51,7 @@ public class BuscaAhEstrela {
     public static void expandirNo(No no) {
         for (Vizinho vizinho : Mapa.getVizinhos(no.cidade)) {
 
-            int custo = 0;
-
-            No novoNo = new No(vizinho.cidade, custo, no);
+            No novoNo = new No(vizinho.cidade,  no.distanciaPercorrida + vizinho.distancia + vizinho.ldr,no.distanciaPercorrida + vizinho.distancia, no);
 
             if (VerificacaoBusca.verificarNoExpandido(novoNo, expandidos)) {
 

@@ -66,7 +66,7 @@ public class Mapa {
                 break;
             case RIMNICU_VILCEA:
                 vizinhos.add(new Vizinho(Cidade.CRAIOVA, 146, 160));
-                vizinhos.add(new Vizinho(Cidade.PITESTI, 97, 10));
+                vizinhos.add(new Vizinho(Cidade.PITESTI, 97, 100));
                 vizinhos.add(new Vizinho(Cidade.SIBIU, 80, 253));
                 break;
             case SIBIU:
