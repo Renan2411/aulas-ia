@@ -49,7 +49,6 @@ public class BuscaEmArvore {
             noAtual = noAtual.pai;
         }
 
-
         System.out.println();
         System.out.println("Expandidos");
         System.out.println();
@@ -107,30 +106,6 @@ public class BuscaEmArvore {
                 borda.add(criarNo(no, moverPeca(cloneArrayBidimensional(no.estado), Acao.valueOf(acao)), no.profundidade + 1));
             }
         }
-    }
-
-    public static List<String> removerAcao(List<String> acoes, String acaoAtual) {
-        return acoes.stream().filter(acao -> acao != acaoAtual).collect(Collectors.toList());
-    }
-
-    public static String getAcao(List<String> acoes) {
-
-        if (acoes.size() == 0) {
-            return acoes.get(0);
-        }
-
-        Random random = new Random();
-
-        int numeroAleatorio = random.nextInt(acoes.size());
-
-        return acoes.get(numeroAleatorio);
-    }
-
-    public static void setarAcoes(List<String> acoes) {
-        acoes.add(Acao.DIREITA.name());
-        acoes.add(Acao.ESQUERDA.name());
-        acoes.add(Acao.PARA_CIMA.name());
-        acoes.add(Acao.PARA_BAIXO.name());
     }
 
     public static int[][] cloneArrayBidimensional(int[][] original) {
