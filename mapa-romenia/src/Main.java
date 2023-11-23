@@ -1,5 +1,3 @@
-
-
 public class Main {
     public static void main(String[] args) {
 
@@ -9,7 +7,5 @@ public class Main {
 //BuscaPorCustoUniforme.executar(Cidade.BUCHAREST, no);
         //BuscaGulosa.executar(Cidade.BUCHAREST, no);
         //BuscaAhEstrela.executar(Cidade.BUCHAREST, no);
-        Perceptron.testeExclusivo();
-
     }
 }
